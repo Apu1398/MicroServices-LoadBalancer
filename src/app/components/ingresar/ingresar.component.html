@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-block">
+      
+      <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+        <h1>Ingresar Gasto</h1>
+        <div class="info">
+          <p>Nombre del Responsable</p>
+          <input type="text" name="responsable" id="responsable" placeholder="Ej: Juan Perez" [(ngModel)]="this.gastoActual.responsable">
+          <p>Departamento</p>
+          <input type="text" name="dpto" id="dpto" placeholder="Ej: TTO" [(ngModel)]="this.gastoActual.departamento">
+          <p>Monto del Gasto (colones)</p>          
+          <input type="number" name="gasto" id="gasto" min="0" step="any" placeholder="" [(ngModel)]="this.gastoActual.monto" >
+          <p>Descripción</p>
+          <input type="text" name="descripcion" id="descripcion" placeholder="Ej: Tinta de impresora" [(ngModel)]="this.gastoActual.descripcion">
+        </div>
+        <button type="submit">Ingresar</button>
+      </form>
+    </div>
+  </body>
+</html>
