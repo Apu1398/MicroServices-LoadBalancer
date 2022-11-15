@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Gasto } from 'src/app/model/gasto';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-ingresar',
@@ -8,22 +9,35 @@ import { Gasto } from 'src/app/model/gasto';
 })
 export class IngresarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public api:DataService) { }
+
+  
 
   gastoActual:Gasto = {
     monto:0,
     descripcion:"",
     responsable:"",
     departamento:"",
-    fecha: new Date()
+    fecha: ""
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    if(this.gastoActual.monto > 0)   alert("Responsable: " + this.gastoActual.responsable + "\nDepartamento: " + this.gastoActual.departamento + "\nMonto: " + this.gastoActual.monto + "\nDescripción: " + this.gastoActual.descripcion + "\nFecha: " + this.gastoActual.fecha );
-    else alert("Monto no puede ser menor o igual 0 colones")
+    if(this.gastoActual.monto < 0) alert("Monto no puede ser menor o igual 0 colones");
+    else{
+      this.api.crearGasto(this.gastoActual)
+      .subscribe(response => {
+        alert("Dato enviado");
+        this.gastoActual = {
+          monto:0,
+          descripcion:"",
+          responsable:"",
+          departamento:"",
+          fecha: ""}
+      });      
+    }
   }
 
 

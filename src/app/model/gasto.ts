@@ -3,5 +3,5 @@ export interface Gasto {
     descripcion: string,
     responsable: string,
     departamento: string,
-    fecha:Date    
+    fecha:string    
 }
