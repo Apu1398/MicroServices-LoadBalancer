@@ -14,14 +14,15 @@ export class IngresarComponent implements OnInit {
     monto:0,
     descripcion:"",
     responsable:"",
-    departamento:""
+    departamento:"",
+    fecha: new Date()
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    if(this.gastoActual.monto > 0)   alert("Responsable: " + this.gastoActual.responsable + "\nDepartamento: " + this.gastoActual.departamento + "\nMonto: " + this.gastoActual.monto + "\nDescripción: " + this.gastoActual.descripcion);
+    if(this.gastoActual.monto > 0)   alert("Responsable: " + this.gastoActual.responsable + "\nDepartamento: " + this.gastoActual.departamento + "\nMonto: " + this.gastoActual.monto + "\nDescripción: " + this.gastoActual.descripcion + "\nFecha: " + this.gastoActual.fecha );
     else alert("Monto no puede ser menor o igual 0 colones")
   }
 

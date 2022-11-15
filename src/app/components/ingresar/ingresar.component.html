@@ -7,19 +7,21 @@
   <body>
     <div class="main-block">
       
-      <form #userForm="ngForm" (ngSubmit)="onSubmit()">
-        <h1>Ingresar Gasto</h1>
+      <form #userForm="ngForm" (ngSubmit)="onSubmit()" id="form" ngNativeValidate>
+        <h1>Ingresar Nuevo Gasto actualizado</h1>
         <div class="info">
           <p>Nombre del Responsable</p>
-          <input type="text" name="responsable" id="responsable" placeholder="Ej: Juan Perez" [(ngModel)]="this.gastoActual.responsable">
+          <input type="text" name="responsable" id="responsable" placeholder="Ej: Juan Perez" [(ngModel)]="this.gastoActual.responsable" required >
           <p>Departamento</p>
-          <input type="text" name="dpto" id="dpto" placeholder="Ej: TTO" [(ngModel)]="this.gastoActual.departamento">
+          <input type="text" name="dpto" id="dpto" placeholder="Ej: TTO" [(ngModel)]="this.gastoActual.departamento" required >
           <p>Monto del Gasto (colones)</p>          
-          <input type="number" name="gasto" id="gasto" min="0" step="any" placeholder="" [(ngModel)]="this.gastoActual.monto" >
+          <input type="number" name="gasto" id="gasto" min="0" step="any" placeholder="" [(ngModel)]="this.gastoActual.monto" required >
           <p>Descripción</p>
-          <input type="text" name="descripcion" id="descripcion" placeholder="Ej: Tinta de impresora" [(ngModel)]="this.gastoActual.descripcion">
+          <input type="text" name="descripcion" id="descripcion" placeholder="Ej: Tinta de impresora" [(ngModel)]="this.gastoActual.descripcion" required >
+          <p>Fecha</p>
+          <input type="date" name="date" id="date" placeholder="Ej: Tinta de impresora" [(ngModel)]="this.gastoActual.fecha" required >
         </div>
-        <button type="submit">Ingresar</button>
+        <button type="submit" id="submit">Ingresar</button>
       </form>
     </div>
   </body>
